@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(python3 verify.py oll.json)",
+      "Read(//Users/asad/Documents/dev/**)",
+      "Read(//Users/asad/**)",
+      "Bash(grep -iE 'workspace|error|resolve' /Users/asad/.npm/_logs/2026-07-09T19_18_42_238Z-debug-0.log | head -30)",
+      "Read(//Users/asad/.npm/_logs/**)",
+      "Bash(ls -la /Users/asad/Documents/dev/oll-cheat-sheet/ | grep -i node; echo \"---\"; ls -d /Users/asad/Documents/dev/node_modules/.pnpm 2>/dev/null && echo \"parent has .pnpm store\")",
+      "Read(//Users/asad/Documents/dev/node_modules/.pnpm/**)",
+      "Bash(lsof -nP -iTCP -sTCP:LISTEN)",
+      "Bash(echo \"=== exit: $?\")",
+      "Bash(node /private/tmp/claude-501/-Users-asad-Documents-dev-oll-cheat-sheet/7222c8fc-f445-4216-bcec-100fef2b70b4/scratchpad/render.cjs)",
+      "Bash(node_modules/.pnpm/esbuild@0.25.12/node_modules/esbuild/bin/esbuild /private/tmp/claude-501/-Users-asad-Documents-dev-oll-cheat-sheet/7222c8fc-f445-4216-bcec-100fef2b70b4/scratchpad/render.tsx --bundle --format=cjs --jsx=automatic --platform=node --outfile=/private/tmp/claude-501/-Users-asad-Documents-dev-oll-cheat-sheet/7222c8fc-f445-4216-bcec-100fef2b70b4/scratchpad/render.cjs --log-level=error --loader:.json=json)",
+      "Bash(node_modules/.pnpm/esbuild@0.25.12/node_modules/esbuild/bin/esbuild .render-check.tsx --bundle --format=cjs --jsx=automatic --platform=node --outfile=/private/tmp/claude-501/-Users-asad-Documents-dev-oll-cheat-sheet/7222c8fc-f445-4216-bcec-100fef2b70b4/scratchpad/render.cjs --log-level=error)",
+      "Bash(pnpm -v)",
+      "Bash(pnpm view *)",
+      "Bash(pnpm dlx *)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(node -e \"const p=require\\('./node_modules/shadcn/package.json'\\); console.log\\(JSON.stringify\\(p.exports,null,2\\)\\); console.log\\('files:', p.files\\)\")",
+      "Bash(node /private/tmp/claude-501/-Users-asad-Documents-dev-oll-cheat-sheet/7222c8fc-f445-4216-bcec-100fef2b70b4/scratchpad/rc.mjs)",
+      "Bash(echo \"TSC_EXIT=$?\")",
+      "Bash(echo \"BUILD_EXIT=$?\")",
+      "Bash(echo \"BUILD=$?\")",
+      "Bash(pnpm remove *)",
+      "Bash(echo \"TSC=$?\")",
+      "Bash(curl -s -o /dev/null -w \"localhost:5173 -> HTTP %{http_code}\\\\n\" http://localhost:5173/ --max-time 4)",
+      "Bash(curl -s http://localhost:5173/ --max-time 4)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 /private/tmp/claude-501/-Users-asad-Documents-dev-oll-cheat-sheet/7222c8fc-f445-4216-bcec-100fef2b70b4/scratchpad/candidates.py)",
+      "Bash(echo \"VERIFY_EXIT=$?\")",
+      "Bash(pnpm typecheck *)",
+      "Bash(python3 verify.py)",
+      "Bash(python3 verify.py oll.json pll.json)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(python3 -c \"import PIL; print\\(PIL.__version__\\)\")",
+      "Bash(sips -c 1500 2900 --cropOffset 3050 0 pll-gperms.png --out gperms-crop.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight gperms-crop.png)",
+      "Bash(pkill -f \"vite\")"
+    ]
+  }
+}

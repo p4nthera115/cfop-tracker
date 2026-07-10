@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+  --font-heading: var(--font-sans);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Dark only. There is deliberately no light token block and no toggle. */
+:root {
+  --background: #000000;
+  --foreground: #fafafa;
+  --card: #0a0a0a;
+  --card-foreground: #fafafa;
+  --popover: #0a0a0a;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #000000;
+  --secondary: #171717;
+  --secondary-foreground: #fafafa;
+  --muted: #171717;
+  --muted-foreground: #737373;
+  --accent: #262626;
+  --accent-foreground: #fafafa;
+  --destructive: #7f1d1d;
+  /* The one non-yellow accent: learned cases. */
+  --success: #22c55e;
+  --success-foreground: #052e16;
+  --border: #262626;
+  --input: #262626;
+  --ring: #525252;
+  --radius: 0.5rem;
+
+  /* Sticker face colours. Muted, so they sit on zinc-950 without vibrating.
+     Yellow is yellow-400 — pure yellow vibrates on black. */
+  --sticker-yellow: #facc15;
+  --sticker-green: #22c55e;
+  --sticker-red: #ef4444;
+  --sticker-blue: #3b82f6;
+  --sticker-orange: #f97316;
+  /* OLL only: a sticker that is not yet oriented. */
+  --sticker-dark: #262626;
+
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+ * The sticker grid. 5x5 plan view of the last layer, front at the bottom.
+ * Inner 3x3 is the U face; the outer strips are side stickers seen edge-on,
+ * so they are thin bars set slightly off the face, not squares.
+ *
+ * The --sticker-cell / --sticker-bar / --sticker-gap / --sticker-bar-track
+ * lengths are set inline from src/components/stickerGeometry.ts, which is also
+ * what places the PLL arrow overlay. Change them there, not here.
+ */
+@layer components {
+  .sticker-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--sticker-bar-track) repeat(
+        3,
+        var(--sticker-cell)
+      ) var(--sticker-bar-track);
+    grid-template-rows: var(--sticker-bar-track) repeat(3, var(--sticker-cell)) var(
+        --sticker-bar-track
+      );
+    gap: var(--sticker-gap);
+    justify-content: center;
+  }
+
+  /* Hairline hugging the U face, so the face still reads as one unit now that
+     the edge stickers are filled in too. */
+  .sticker-grid::before {
+    content: "";
+    position: absolute;
+    inset: calc(var(--sticker-bar-track) + 1px);
+    border-radius: 5px;
+  }
+
+  .sticker-cell {
+    position: relative;
+  }
+
+  .sticker-face {
+    border-radius: 4px;
+  }
+
+  /* Bars sit (--sticker-bar-track - --sticker-bar) off the face, pinned to the
+     outer edge of their track. For OLL, unoriented ones are filled just like
+     unoriented face cells; for PLL every bar carries a side colour. */
+  .sticker-bar {
+    border-radius: 2px;
+  }
+
+  .sticker-bar-t,
+  .sticker-bar-b {
+    height: var(--sticker-bar);
+  }
+
+  .sticker-bar-l,
+  .sticker-bar-r {
+    width: var(--sticker-bar);
+  }
+
+  .sticker-bar-t {
+    align-self: start;
+  }
+
+  .sticker-bar-b {
+    align-self: end;
+  }
+
+  .sticker-bar-l {
+    justify-self: start;
+  }
+
+  .sticker-bar-r {
+    justify-self: end;
+  }
+
+  .sticker-yellow {
+    background: var(--sticker-yellow);
+  }
+
+  .sticker-green {
+    background: var(--sticker-green);
+  }
+
+  .sticker-red {
+    background: var(--sticker-red);
+  }
+
+  .sticker-blue {
+    background: var(--sticker-blue);
+  }
+
+  .sticker-orange {
+    background: var(--sticker-orange);
+  }
+
+  .sticker-dark {
+    background: var(--sticker-dark);
+  }
+
+  /* Sized to the grid by inset, and scaled by the svg viewBox. Sits above the
+     stickers because it comes last in the DOM. */
+  .sticker-arrows {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

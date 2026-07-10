@@ -1,0 +1,1986 @@
+{
+ "groups": [
+  "Edges Only",
+  "Corners Only",
+  "Adjacent Corner Swap",
+  "Diagonal Corner Swap"
+ ],
+ "cases": [
+  {
+   "id": "H",
+   "name": "H Perm",
+   "group": "Edges Only",
+   "grid": [
+    [
+     null,
+     "B",
+     "G",
+     "B",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     null,
+     "G",
+     "B",
+     "G",
+     null
+    ]
+   ],
+   "setup": "M2 U M2 U2 M2 U M2",
+   "algs": [
+    "M2 U' M2 U2 M2 U' M2"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Ua",
+   "name": "Ua Perm",
+   "group": "Edges Only",
+   "grid": [
+    [
+     null,
+     "B",
+     "B",
+     "B",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "G",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     null,
+     "G",
+     "R",
+     "G",
+     null
+    ]
+   ],
+   "setup": "M2 U' M U2 M' U' M2",
+   "algs": [
+    "M2 U M U2 M' U M2"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Ub",
+   "name": "Ub Perm",
+   "group": "Edges Only",
+   "grid": [
+    [
+     null,
+     "B",
+     "R",
+     "B",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "B",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     null,
+     "G",
+     "G",
+     "G",
+     null
+    ]
+   ],
+   "setup": "R2 U' R' U' R U R U R U' R",
+   "algs": [
+    "R' U R' U' R' U' R' U R U R2"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Z",
+   "name": "Z Perm",
+   "group": "Edges Only",
+   "grid": [
+    [
+     null,
+     "B",
+     "R",
+     "B",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "G",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     null,
+     "G",
+     "O",
+     "G",
+     null
+    ]
+   ],
+   "setup": "M2 U2 M U M2 U M2 U M U'",
+   "algs": [
+    "U M' U' M2 U' M2 U' M' U2 M2"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Aa",
+   "name": "Aa Perm",
+   "group": "Corners Only",
+   "grid": [
+    [
+     null,
+     "R",
+     "B",
+     "R",
+     null
+    ],
+    [
+     "B",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     null,
+     "G",
+     "G",
+     "B",
+     null
+    ]
+   ],
+   "setup": "x R2 D2 R U R' D2 R U' R x'",
+   "algs": [
+    "x R' U R' D2 R U' R' D2 R2 x'"
+   ],
+   "arrows": [
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      0
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      0
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Ab",
+   "name": "Ab Perm",
+   "group": "Corners Only",
+   "grid": [
+    [
+     null,
+     "G",
+     "B",
+     "O",
+     null
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     null,
+     "G",
+     "G",
+     "R",
+     null
+    ]
+   ],
+   "setup": "x R' U R' D2 R U' R' D2 R2 x'",
+   "algs": [
+    "x R2 D2 R U R' D2 R U' R x'"
+   ],
+   "arrows": [
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      0,
+      0
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      0
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "name": "E Perm",
+   "group": "Corners Only",
+   "grid": [
+    [
+     null,
+     "O",
+     "B",
+     "R",
+     null
+    ],
+    [
+     "G",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "B",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     null,
+     "O",
+     "G",
+     "R",
+     null
+    ]
+   ],
+   "setup": "x' D R U R' D' R U' R' D R U' R' D' R U R' x",
+   "algs": [
+    "x' R U' R' D R U R' D' R U R' D R U' R' D' x"
+   ],
+   "arrows": [
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      0
+     ],
+     "to": [
+      0,
+      0
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      0
+     ],
+     "to": [
+      2,
+      0
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "name": "F Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "G",
+     "R",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     null,
+     "G",
+     "B",
+     "R",
+     null
+    ]
+   ],
+   "setup": "R' U' R U' R' U R U R2 F' R U R U' R' F U R",
+   "algs": [
+    "R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Ga",
+   "name": "Ga Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "G",
+     "R",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "B",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     null,
+     "G",
+     "R",
+     "R",
+     null
+    ]
+   ],
+   "setup": "D R' U' R U D' R2 U R' U R U' R U' R2",
+   "algs": [
+    "R2 U R' U R' U' R U' R2 D U' R' U R D'"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Gb",
+   "name": "Gb Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "O",
+     "R",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     null,
+     "G",
+     "B",
+     "R",
+     null
+    ]
+   ],
+   "setup": "D' R2 U R' U R' U' R U' R2 D U' R' U R",
+   "algs": [
+    "R' U' R U D' R2 U R' U R U' R U' R2 D"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Gc",
+   "name": "Gc Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "R",
+     "R",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "G",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     null,
+     "G",
+     "B",
+     "R",
+     null
+    ]
+   ],
+   "setup": "D' R U R' D U' R2 U' R U' R' U R' U R2",
+   "algs": [
+    "R2 U' R U' R U R' U R2 U D' R U' R' D"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Gd",
+   "name": "Gd Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "G",
+     "R",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     null,
+     "G",
+     "O",
+     "R",
+     null
+    ]
+   ],
+   "setup": "D R2 U' R U' R U R' U R2 D' U R U' R'",
+   "algs": [
+    "R U R' U' D R2 U' R U' R' U R' U R2 D'"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Ja",
+   "name": "Ja Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "R",
+     "R",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     null,
+     "G",
+     "G",
+     "R",
+     null
+    ]
+   ],
+   "setup": "L' R' U2 R U R' U2 L U' R U",
+   "algs": [
+    "U' R' U L' U2 R U' R' U2 R L"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Jb",
+   "name": "Jb Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "B",
+     "B",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "G",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "G",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     null,
+     "R",
+     "O",
+     "O",
+     null
+    ]
+   ],
+   "setup": "R U R2 F' R U R U' R' F R U' R' U",
+   "algs": [
+    "U' R U R' F' R U R' U' R' F R2 U' R'"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      2,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      0
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Ra",
+   "name": "Ra Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "R",
+     "B",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     "G",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     null,
+     "R",
+     "G",
+     "O",
+     null
+    ]
+   ],
+   "setup": "R U2 R D R' U R D' R' U' R' U R U R' U",
+   "algs": [
+    "U' R U' R' U' R U R D R' U' R D' R' U2 R'"
+   ],
+   "arrows": [
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      2,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      0
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Rb",
+   "name": "Rb Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "R",
+     "B",
+     "O",
+     null
+    ],
+    [
+     "B",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     null,
+     "G",
+     "R",
+     "G",
+     null
+    ]
+   ],
+   "setup": "R' U2 R U2 R' F R U R' U' R' F' R2 U'",
+   "algs": [
+    "U R2 F R U R U' R' F' R U2 R' U2 R"
+   ],
+   "arrows": [
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      0,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      2,
+      1
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      0
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      2,
+      1
+     ],
+     "to": [
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "name": "T Perm",
+   "group": "Adjacent Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "B",
+     "R",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "G"
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     null,
+     "G",
+     "G",
+     "R",
+     null
+    ]
+   ],
+   "setup": "F R U' R' U R U R2 F' R U R U' R'",
+   "algs": [
+    "R U R' U' R' F R2 U' R' U' R U R' F'"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Na",
+   "name": "Na Perm",
+   "group": "Diagonal Corner Swap",
+   "grid": [
+    [
+     null,
+     "B",
+     "B",
+     "G",
+     null
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     null,
+     "B",
+     "G",
+     "G",
+     null
+    ]
+   ],
+   "setup": "R F U' R' U R U F' R2 F' R U R U' R' F",
+   "algs": [
+    "F' R U R' U' R' F R2 F U' R' U' R U F' R'"
+   ],
+   "arrows": [
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      2
+     ],
+     "to": [
+      2,
+      0
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      0
+     ],
+     "to": [
+      0,
+      2
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Nb",
+   "name": "Nb Perm",
+   "group": "Diagonal Corner Swap",
+   "grid": [
+    [
+     null,
+     "G",
+     "B",
+     "B",
+     null
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     null,
+     "G",
+     "G",
+     "B",
+     null
+    ]
+   ],
+   "setup": "F r' F' r U r U' r2 D' F r U r' F' D r",
+   "algs": [
+    "r' D' F r U' r' F' D r2 U r' U' r' F r F'"
+   ],
+   "arrows": [
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      0
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "V",
+   "name": "V Perm",
+   "group": "Diagonal Corner Swap",
+   "grid": [
+    [
+     null,
+     "G",
+     "R",
+     "B",
+     null
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "B"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     null,
+     "G",
+     "G",
+     "B",
+     null
+    ]
+   ],
+   "setup": "R' f' R U R' U R U2 R' U f R U R' U' R",
+   "algs": [
+    "R' U R U' R' f' U' R U2 R' U' R U' R' f R"
+   ],
+   "arrows": [
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      2
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      0
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Y",
+   "name": "Y Perm",
+   "group": "Diagonal Corner Swap",
+   "grid": [
+    [
+     null,
+     "G",
+     "O",
+     "B",
+     null
+    ],
+    [
+     "R",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "B",
+     "Y",
+     "Y",
+     "Y",
+     "R"
+    ],
+    [
+     "O",
+     "Y",
+     "Y",
+     "Y",
+     "O"
+    ],
+    [
+     null,
+     "G",
+     "G",
+     "B",
+     null
+    ]
+   ],
+   "setup": "F R' F' R U R U' R' F R U' R' U R U R' F'",
+   "algs": [
+    "F R U' R' U' R U R' F' R U R' U' R' F R F'"
+   ],
+   "arrows": [
+    {
+     "kind": "corner",
+     "frm": [
+      2,
+      2
+     ],
+     "to": [
+      0,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      0,
+      1
+     ],
+     "to": [
+      1,
+      0
+     ]
+    },
+    {
+     "kind": "edge",
+     "frm": [
+      1,
+      0
+     ],
+     "to": [
+      0,
+      1
+     ]
+    },
+    {
+     "kind": "corner",
+     "frm": [
+      0,
+      0
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ]
+  }
+ ]
+}
