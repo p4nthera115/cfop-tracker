@@ -10,7 +10,14 @@ function switcherLink({ isActive }: { isActive: boolean }) {
   )
 }
 
-export function Header({ done, total }: { done: number; total: number }) {
+export function Header({
+  done,
+  total,
+}: {
+  set: string
+  done: number
+  total: number
+}) {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
