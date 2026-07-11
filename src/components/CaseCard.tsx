@@ -1,5 +1,5 @@
 import { type ReactNode, useEffect, useState } from "react"
-import { Check, EyeOff, Plus, Trash2 } from "lucide-react"
+import { Check, EyeOff, SquarePen, Plus, Trash2 } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import {
   Dialog,
@@ -335,93 +335,109 @@ export function CaseCard({
         </div>
       </div>
 
-      <div>
-        <div className={label}>Solution</div>
-        <Dialog open={open} onOpenChange={setOpen}>
+      {/* The edit affordance lives on the label line, not in the alg row: the
+          row needs its full width, and an icon inside it pushed the longest
+          algs onto a second line. Up here it costs no horizontal space at all. */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <div className="group/alg">
+          <div className={cn(label, "flex items-center justify-between gap-2")}>
+            <span>Solution</span>
+            {/* The squarePen opens the same dialog. `-m-1 p-1` grows the tap target
+                without growing the icon's footprint, so the label row's height
+                is untouched. */}
+            <DialogTrigger
+              aria-label={`Edit algorithms for ${name}`}
+              className={cn(
+                "-m-1 flex cursor-pointer rounded-sm p-1 text-muted-foreground transition-colors",
+                "hover:text-foreground group-hover/alg:text-foreground",
+                focusRing
+              )}
+            >
+              <SquarePen aria-hidden="true" className="size-3 shrink-0" />
+            </DialogTrigger>
+          </div>
           <DialogTrigger
             className={cn(
               algBox,
               "text-center text-xs text-foreground transition-colors duration-150",
-              "hover:border-neutral-500 cursor-pointer",
+              "cursor-pointer hover:border-neutral-500 hover:bg-accent/40",
               focusRing
             )}
             aria-label={`Edit algorithms for ${name}`}
           >
             <span className="flex-1 break-words">{selected.text}</span>
-            {/* <HtmBadge alg={selected.text} /> */}
-            {/* <Pencil className="size-1 shrink-0 text-muted-foreground" /> */}
           </DialogTrigger>
+        </div>
 
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>{name}</DialogTitle>
-              <DialogDescription>
-                Choose, edit, or add algorithms.
-              </DialogDescription>
-            </DialogHeader>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{name}</DialogTitle>
+            <DialogDescription>
+              Choose, edit, or add algorithms.
+            </DialogDescription>
+          </DialogHeader>
 
-            {/* Everything below the title scrolls as one, so the sheet never
+          {/* Everything below the title scrolls as one, so the sheet never
                 overflows and the palette stays reachable on small screens. */}
-            <div className="-mr-2 flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pr-2">
-              {/* The case for reference, since the modal covers the card. */}
-              <div className="flex flex-col items-center gap-1.5">
-                <StickerGrid grid={grid} arrows={arrows} />
-                <div className={cn(setupBox, "w-auto")}>
-                  <span className="break-words">{setup}</span>
-                </div>
+          <div className="-mr-2 flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pr-2">
+            {/* The case for reference, since the modal covers the card. */}
+            <div className="flex flex-col items-center gap-1.5">
+              <StickerGrid grid={grid} arrows={arrows} />
+              <div className={cn(setupBox, "w-auto")}>
+                <span className="break-words">{setup}</span>
               </div>
-
-              <RadioGroup
-                value={selectedKey}
-                onValueChange={handleSelect}
-                className="gap-1.5"
-              >
-                {items.map((item) =>
-                  item.editable ? (
-                    <CustomRow
-                      key={`custom:${item.index}`}
-                      value={`custom:${item.index}`}
-                      text={item.text}
-                      setup={setup}
-                      set={set}
-                      onCommit={(text) =>
-                        onEditCustom(id, defaults, item.index, text)
-                      }
-                      onDelete={() => onDeleteCustom(id, defaults, item.index)}
-                    />
-                  ) : (
-                    <DefaultRow
-                      key={`default:${item.index}`}
-                      value={`default:${item.index}`}
-                      text={item.text}
-                      onHide={() => onHideDefault(id, defaults, item.index)}
-                    />
-                  )
-                )}
-              </RadioGroup>
-
-              {hiddenCount > 0 && (
-                <button
-                  type="button"
-                  onClick={() => onShowHidden(id, defaults)}
-                  className={cn(
-                    "self-start rounded-sm px-1 text-[11px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline",
-                    focusRing
-                  )}
-                >
-                  Show hidden ({hiddenCount})
-                </button>
-              )}
-
-              <AddRow
-                setup={setup}
-                set={set}
-                onAdd={(text) => onAddCustom(id, defaults, text)}
-              />
             </div>
-          </DialogContent>
-        </Dialog>
-      </div>
+
+            <RadioGroup
+              value={selectedKey}
+              onValueChange={handleSelect}
+              className="gap-1.5"
+            >
+              {items.map((item) =>
+                item.editable ? (
+                  <CustomRow
+                    key={`custom:${item.index}`}
+                    value={`custom:${item.index}`}
+                    text={item.text}
+                    setup={setup}
+                    set={set}
+                    onCommit={(text) =>
+                      onEditCustom(id, defaults, item.index, text)
+                    }
+                    onDelete={() => onDeleteCustom(id, defaults, item.index)}
+                  />
+                ) : (
+                  <DefaultRow
+                    key={`default:${item.index}`}
+                    value={`default:${item.index}`}
+                    text={item.text}
+                    onHide={() => onHideDefault(id, defaults, item.index)}
+                  />
+                )
+              )}
+            </RadioGroup>
+
+            {hiddenCount > 0 && (
+              <button
+                type="button"
+                onClick={() => onShowHidden(id, defaults)}
+                className={cn(
+                  "self-start rounded-sm px-1 text-[11px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline",
+                  focusRing
+                )}
+              >
+                Show hidden ({hiddenCount})
+              </button>
+            )}
+
+            <AddRow
+              setup={setup}
+              set={set}
+              onAdd={(text) => onAddCustom(id, defaults, text)}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </Card>
   )
 }
