@@ -6,7 +6,17 @@ import { useActiveSection } from '../useActiveSection'
 import { useProgress } from '../useProgress'
 
 export function OllPage() {
-  const { completed, algChoices, toggleComplete, chooseAlg } = useProgress('oll')
+  const {
+    completed,
+    toggleComplete,
+    getCaseState,
+    selectAlg,
+    addCustom,
+    editCustom,
+    deleteCustom,
+    hideDefault,
+    showHidden,
+  } = useProgress('oll')
   const sectionIds = useMemo(() => ollSections.map((s) => s.id), [])
   const active = useActiveSection(sectionIds)
 
@@ -30,16 +40,22 @@ export function OllPage() {
                   key={key}
                   id={key}
                   name={`OLL ${ollCase.id}`}
+                  set="OLL"
                   heading={
                     <span className="text-sm font-semibold tracking-tight">OLL {ollCase.id}</span>
                   }
                   grid={ollCase.sticker}
                   setup={ollCase.setup}
-                  algs={ollCase.algs}
+                  defaults={ollCase.algs}
+                  state={getCaseState(key)}
                   completed={completed.has(key)}
                   onToggleComplete={toggleComplete}
-                  algIndex={algChoices[key] ?? 0}
-                  onChooseAlg={chooseAlg}
+                  onSelect={selectAlg}
+                  onAddCustom={addCustom}
+                  onEditCustom={editCustom}
+                  onDeleteCustom={deleteCustom}
+                  onHideDefault={hideDefault}
+                  onShowHidden={showHidden}
                 />
               )
             })}

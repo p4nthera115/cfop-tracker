@@ -70,3 +70,25 @@ export interface PllData {
 
 /** case id -> index into that case's `algs`. Ids are stringified to share a shape. */
 export type AlgChoices = Record<string, number>
+
+/** Which alg a case shows big: a bundled default, or one the user added. */
+export interface AlgSelection {
+  source: 'default' | 'custom'
+  index: number
+}
+
+/**
+ * A case's user edits, layered over the read-only bundled `algs`. The visible
+ * list is defaults (minus `hidden`) followed by `custom`; `selected` names the
+ * primary. See [src/algState.ts](src/algState.ts) for how it's derived.
+ */
+export interface CaseAlgState {
+  /** User-added algs, in order. */
+  custom: string[]
+  /** Indices of DEFAULT algs the user hid. */
+  hidden: number[]
+  selected: AlgSelection
+}
+
+/** case id -> its edits. Absent ids are untouched (all defaults, first selected). */
+export type AlgStore = Record<string, CaseAlgState>

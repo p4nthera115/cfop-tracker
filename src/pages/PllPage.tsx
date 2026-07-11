@@ -6,7 +6,17 @@ import { useActiveSection } from '../useActiveSection'
 import { useProgress } from '../useProgress'
 
 export function PllPage() {
-  const { completed, algChoices, toggleComplete, chooseAlg } = useProgress('pll')
+  const {
+    completed,
+    toggleComplete,
+    getCaseState,
+    selectAlg,
+    addCustom,
+    editCustom,
+    deleteCustom,
+    hideDefault,
+    showHidden,
+  } = useProgress('pll')
   const sectionIds = useMemo(() => pllSections.map((s) => s.id), [])
   const active = useActiveSection(sectionIds)
 
@@ -28,6 +38,7 @@ export function PllPage() {
                 key={pllCase.id}
                 id={pllCase.id}
                 name={pllCase.name}
+                set="PLL"
                 // The perm letter is the label — these cases are known by name,
                 // not number — so it carries more weight than the OLL number.
                 heading={
@@ -38,11 +49,16 @@ export function PllPage() {
                 grid={pllCase.grid}
                 arrows={pllCase.arrows}
                 setup={pllCase.setup}
-                algs={pllCase.algs}
+                defaults={pllCase.algs}
+                state={getCaseState(pllCase.id)}
                 completed={completed.has(pllCase.id)}
                 onToggleComplete={toggleComplete}
-                algIndex={algChoices[pllCase.id] ?? 0}
-                onChooseAlg={chooseAlg}
+                onSelect={selectAlg}
+                onAddCustom={addCustom}
+                onEditCustom={editCustom}
+                onDeleteCustom={deleteCustom}
+                onHideDefault={hideDefault}
+                onShowHidden={showHidden}
               />
             ))}
           </CaseSection>

@@ -37,7 +37,13 @@
       "Bash(python3 -c \"import PIL; print\\(PIL.__version__\\)\")",
       "Bash(sips -c 1500 2900 --cropOffset 3050 0 pll-gperms.png --out gperms-crop.png)",
       "Bash(sips -g pixelWidth -g pixelHeight gperms-crop.png)",
-      "Bash(pkill -f \"vite\")"
+      "Bash(pkill -f \"vite\")",
+      "Bash(node -e \"const r=require\\('radix-ui'\\); console.log\\('Tooltip' in r, 'RadioGroup' in r, 'Collapsible' in r\\)\")",
+      "Bash(node --input-type=module -e ' *)",
+      "Bash(node -e \"const r=require\\('radix-ui'\\); console.log\\('Dialog:', 'Dialog' in r\\)\")",
+      "Bash(node --input-type=module -e 'import * as L from \"lucide-react\"; console.log\\(\"X:\", \"X\" in L, \"| XIcon:\", \"XIcon\" in L\\)')",
+      "Bash(echo \"exit:$?\")",
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright available'\\)}catch{try{require.resolve\\('puppeteer'\\);console.log\\('puppeteer available'\\)}catch{console.log\\('no browser driver'\\)}}\")"
     ]
   }
 }
