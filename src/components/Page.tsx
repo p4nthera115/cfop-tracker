@@ -47,8 +47,16 @@ export function Page({
   return (
     <>
       <Header set={set} done={done} total={total} />
-      <FeatureBanner />
-      <Navbar active={active} sections={sections} label={`${set} groups`} />
+      {/*
+        Banner and nav share one sticky bar under the header so the announcement
+        stays pinned while you scroll. Dismissing collapses the banner and the
+        nav rises to fill the gap; `--announce-h` (set by the banner) keeps the
+        section headings' sticky offset in step.
+      */}
+      <div className="sticky top-14 z-40">
+        <FeatureBanner />
+        <Navbar active={active} sections={sections} label={`${set} groups`} />
+      </div>
 
       <main className="mx-auto max-w-7xl px-4 pb-24 sm:px-6">{children}</main>
 
@@ -87,7 +95,7 @@ export function CaseSection({
         bleed the blurred backdrop across `main`'s padding, so cards don't
         scroll past it at the edges.
       */}
-      <div className="sticky top-[96px] z-30 -mx-4 mb-6 bg-background/80 px-4 pt-3 pb-3 backdrop-blur sm:-mx-6 sm:px-6">
+      <div className="sticky top-[calc(96px+var(--announce-h,0px))] z-30 -mx-4 mb-6 bg-background/80 px-4 pt-3 pb-3 backdrop-blur sm:-mx-6 sm:px-6">
         <div className="flex items-baseline justify-between gap-4">
           <h2 className="text-sm font-medium">{group}</h2>
           <span className="font-mono text-xs tabular-nums text-muted-foreground">

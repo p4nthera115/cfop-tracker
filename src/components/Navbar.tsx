@@ -34,7 +34,7 @@ export function Navbar({
   return (
     <nav
       aria-label={label}
-      className="sticky top-14 z-40 border-b border-border bg-background/80 backdrop-blur"
+      className="border-b border-border bg-background/80 backdrop-blur"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Tabs value={active} className="gap-0">
