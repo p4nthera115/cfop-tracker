@@ -43,7 +43,9 @@
       "Bash(node -e \"const r=require\\('radix-ui'\\); console.log\\('Dialog:', 'Dialog' in r\\)\")",
       "Bash(node --input-type=module -e 'import * as L from \"lucide-react\"; console.log\\(\"X:\", \"X\" in L, \"| XIcon:\", \"XIcon\" in L\\)')",
       "Bash(echo \"exit:$?\")",
-      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright available'\\)}catch{try{require.resolve\\('puppeteer'\\);console.log\\('puppeteer available'\\)}catch{console.log\\('no browser driver'\\)}}\")"
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright available'\\)}catch{try{require.resolve\\('puppeteer'\\);console.log\\('puppeteer available'\\)}catch{console.log\\('no browser driver'\\)}}\")",
+      "Bash(npx --no-install esbuild src/notation.ts --bundle --format=esm --outfile=scratch-notation.mjs)",
+      "Bash(node --experimental-strip-types --input-type=module -e ' *)"
     ]
   }
 }

@@ -3,11 +3,13 @@ import { cn } from "@/lib/utils"
 import {
   algFromTokens,
   cycleMod,
+  nextBracket,
   PALETTE_FACES,
   PALETTE_ROTATE,
   PALETTE_SLICE,
   PALETTE_WIDE,
   tokensFromAlg,
+  unmatchedBrackets,
   type Mod,
   type Token,
 } from "@/notation"
@@ -52,23 +54,37 @@ export function NotationKeyboard({ value, onChange, setup, set }: Props) {
   const tokens = tokensFromAlg(value)
   const status = useValidity(setup, value, set)
 
-  const setTokens = (next: Token[]) => onChange(algFromTokens(next))
-  const append = (face: string) => setTokens([...tokens, { face, mod: "" }])
+  const unmatched = unmatchedBrackets(tokens)
 
-  // ' and 2 act on the last token, and toggle off if already set. Mutually
+  const setTokens = (next: Token[]) => onChange(algFromTokens(next))
+  const append = (face: string) =>
+    setTokens([...tokens, { kind: "move", face, mod: "" }])
+
+  // The contextual bracket key: close an open group, otherwise open one.
+  const addBracket = () =>
+    setTokens([...tokens, { kind: "bracket", char: nextBracket(tokens) }])
+
+  // ' and 2 act on the last MOVE token — skipping any trailing brackets, which
+  // must never receive a modifier — and toggle off if already set. Mutually
   // exclusive: setting one replaces the other outright.
   const modifyLast = (mod: Mod) => {
-    if (tokens.length === 0) return
-    const last = tokens.length - 1
+    let last = tokens.length - 1
+    while (last >= 0 && tokens[last].kind !== "move") last--
+    if (last < 0) return
     setTokens(
       tokens.map((t, i) =>
-        i === last ? { ...t, mod: t.mod === mod ? "" : mod } : t
+        i === last && t.kind === "move"
+          ? { ...t, mod: t.mod === mod ? "" : mod }
+          : t
       )
     )
   }
+  // Only move chips cycle; tapping a bracket does nothing.
   const cycleAt = (i: number) =>
     setTokens(
-      tokens.map((t, j) => (j === i ? { ...t, mod: cycleMod(t.mod) } : t))
+      tokens.map((t, j) =>
+        j === i && t.kind === "move" ? { ...t, mod: cycleMod(t.mod) } : t
+      )
     )
   const removeAt = (i: number) => setTokens(tokens.filter((_, j) => j !== i))
   const backspace = () => setTokens(tokens.slice(0, -1))
@@ -108,6 +124,8 @@ export function NotationKeyboard({ value, onChange, setup, set }: Props) {
         ) : (
           tokens.map((t, i) => {
             const isLast = i === tokens.length - 1
+            const text = t.kind === "move" ? `${t.face}${t.mod}` : t.char
+            const stray = t.kind === "bracket" && unmatched.has(i)
             return (
               <span
                 key={i}
@@ -115,20 +133,28 @@ export function NotationKeyboard({ value, onChange, setup, set }: Props) {
                   "inline-flex items-center gap-0.5 rounded-md border py-1 pl-2.5 pr-1 font-mono text-sm",
                   isLast
                     ? "border-primary/60 bg-accent/50"
-                    : "border-border bg-background"
+                    : "border-border bg-background",
+                  // Advisory only: an unmatched bracket dims but still saves.
+                  stray && "opacity-40"
                 )}
               >
-                {/* Cycle this move's modifier; shift-click deletes (desktop). */}
-                <button
-                  type="button"
-                  onMouseDown={keepFocus}
-                  onClick={(e) => (e.shiftKey ? removeAt(i) : cycleAt(i))}
-                  className={cn("py-0.5 tracking-tight", focusRing)}
-                  aria-label={`Cycle modifier of ${t.face}${t.mod}`}
-                >
-                  {t.face}
-                  {t.mod}
-                </button>
+                {t.kind === "move" ? (
+                  // Cycle this move's modifier; shift-click deletes (desktop).
+                  <button
+                    type="button"
+                    onMouseDown={keepFocus}
+                    onClick={(e) => (e.shiftKey ? removeAt(i) : cycleAt(i))}
+                    className={cn("py-0.5 tracking-tight", focusRing)}
+                    aria-label={`Cycle modifier of ${text}`}
+                  >
+                    {text}
+                  </button>
+                ) : (
+                  // Brackets are grouping, not moves — not cyclable.
+                  <span className="py-0.5 tracking-tight text-muted-foreground">
+                    {text}
+                  </span>
+                )}
                 {/* Always-visible delete affordance for touch. */}
                 <button
                   type="button"
@@ -138,7 +164,7 @@ export function NotationKeyboard({ value, onChange, setup, set }: Props) {
                     "flex size-6 items-center justify-center rounded-sm text-muted-foreground hover:bg-background hover:text-foreground",
                     focusRing
                   )}
-                  aria-label={`Delete ${t.face}${t.mod}`}
+                  aria-label={`Delete ${text}`}
                 >
                   <span aria-hidden="true" className="text-sm leading-none">
                     ×
@@ -210,12 +236,24 @@ export function NotationKeyboard({ value, onChange, setup, set }: Props) {
         >
           2
         </button>
+        {/* Contextual, cosmetic grouping key — muted, not accent like ' and 2. */}
+        <button
+          type="button"
+          onMouseDown={keepFocus}
+          onClick={addBracket}
+          className={cn(tertiaryKey, focusRing)}
+          aria-label={
+            nextBracket(tokens) === ")" ? "Close bracket" : "Open bracket"
+          }
+        >
+          ( )
+        </button>
         <button
           type="button"
           onMouseDown={keepFocus}
           onClick={backspace}
           disabled={tokens.length === 0}
-          className={cn(utilKey, focusRing, "col-span-2 disabled:opacity-40")}
+          className={cn(utilKey, focusRing, "disabled:opacity-40")}
           aria-label="Delete last move"
         >
           <Delete className="size-4" />

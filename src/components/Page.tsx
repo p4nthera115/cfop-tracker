@@ -1,5 +1,6 @@
 import { type ReactNode, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { FeatureBanner } from './FeatureBanner'
 import { Header } from './Header'
 import { Navbar, type NavSection } from './Navbar'
 import { ProgressBar } from './ProgressBar'
@@ -46,6 +47,7 @@ export function Page({
   return (
     <>
       <Header set={set} done={done} total={total} />
+      <FeatureBanner />
       <Navbar active={active} sections={sections} label={`${set} groups`} />
 
       <main className="mx-auto max-w-7xl px-4 pb-24 sm:px-6">{children}</main>
